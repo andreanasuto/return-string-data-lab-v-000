@@ -3,7 +3,7 @@
   <body>
     <% @products.each do |product| %>
       <h1><%= product.name %></h1>
-      <p><%= truncate.product.description %></p>
+      <p id='description'><%= truncate.product.description %></p>
       <button type="button" class="button" onclick="showContent()"></button>
     <% end %>
   </body>
