@@ -3,7 +3,7 @@
   <body>
     <% @products.each do |product| %>
       <h1><%= product.name %></h1>
-      <p id='description-id'><%= truncate product.description %></p>
+      <p id='description-' + <%= product.id %>><%= truncate product.description %></p>
       <button type="button" class="button" data-id= '<%= product.id %>' onclick="showContent()">More Info</button>
     <% end %>
   </body>
