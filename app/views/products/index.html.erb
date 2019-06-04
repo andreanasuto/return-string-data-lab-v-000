@@ -3,7 +3,7 @@
   <body>
     <% @products.each do |product| %>
       <h1><%= product.name %></h1>
-      <p id="description-<%= product.id %>"><%= truncate product.description %></p>
+      <p id="product-<%= product.id %>"><%= truncate product.description %></p>
       <button type="button" class="button" data-id= '<%= product.id %>' onclick="showContent()">More Info</button>
     <% end %>
   </body>
@@ -15,13 +15,13 @@
       $('.button').on('click', function () {
         const id = $(this).data('id')
         $.get('/products/' + id + '/description', function (resp) {
-          $('#description-' + id).text(resp)
-          $.get('/products/' + id + '/inventory', function (data) {
-            if (data == true) {
-              $('#description-' + id).append('<p>Available</p>')
-            } else {
-              $('#description-' + id).append('<p>Sold Out</p>')
-            }
+          $.get("/products/" + id + "/inventory", function(inventory) {
+          var inventoryText = "<strong>Available</strong>";
+          if(inventory === "false"){
+            inventoryText = "<strong>Sold Out</strong>";
+          }
+          var descriptionText = "<p>" + description + "</p><p>" + inventoryText + "</p>";
+          $("#product-" + id).html(descriptionText);
           })
         })
       })
