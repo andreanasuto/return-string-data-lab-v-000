@@ -16,7 +16,7 @@
         const id = this.data('id')
         $.get('/products/' + id + '/inventory', function () {
           const content = resp.body
-          $('#description').html(content)
+          $('#description-' + id).html(content)
         })
       })
     })
