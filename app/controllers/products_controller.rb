@@ -14,6 +14,9 @@ class ProductsController < ApplicationController
     render plain: @product.inventory != 0 ? true : false
   end
 
+  def description
+  end
+
   private
 
   def product_params
