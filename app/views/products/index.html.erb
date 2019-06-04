@@ -14,9 +14,8 @@
     $(function () {
       $('.button').on('click', function () {
         const id = this.data('id')
-        $.get('/products/inventory' + id, function () {
-          const content = resp.body
-          $('#description-' + id).text(content)
+        $.get('/products/inventory' + id, function (resp) {
+          $('#description-' + id).text(resp)
         })
       })
     })
