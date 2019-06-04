@@ -13,7 +13,10 @@
   function showContent() {
     $(function () {
       $('.button').on('click', function () {
-        $.get('/products/' + id '/inventory')
+        $.get('/products/' + id '/inventory', function () {
+          const content = resp.body 
+          $('#description').html(content)
+        })
       })
     })
   }
