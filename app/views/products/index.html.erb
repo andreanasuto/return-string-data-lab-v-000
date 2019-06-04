@@ -4,7 +4,7 @@
     <% @products.each do |product| %>
       <h1><%= product.name %></h1>
       <p><%= truncate.product.description %></p>
-      <%= button_to 'More info', inventory_path(product) %>
+      <%= button_tag 'More info', inventory_path(product) %>
     <% end %>
   </body>
 </html>
