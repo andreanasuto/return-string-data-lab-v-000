@@ -3,7 +3,9 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
   end
 
-  def product_params
+  private
 
+  def product_params
+    params.require(:product).permit(:name, :price)
   end
 end
