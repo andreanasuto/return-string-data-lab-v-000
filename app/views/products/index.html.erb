@@ -14,9 +14,9 @@
     $(function () {
       $('.button').on('click', function () {
         const id = $(this).data('id')
-        $.get('/products/description/' + id, function (resp) {
+        $.get('/products/' + id + '/description', function (resp) {
           $('#description-' + id).text(resp)
-          $.get('/products/inventory/' + id, function (data) {
+          $.get('/products/' + id + '/inventory', function (data) {
             if (data == true) {
               $('#description-' + id).append('<p>Available</p>')
             } else {
