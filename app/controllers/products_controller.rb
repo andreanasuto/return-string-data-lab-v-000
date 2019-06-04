@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
   end
 
   def inventory
-    @inventory = Inventory.find(product.id)
+    @product = Product.find(params[:id])
   end
 
   private
